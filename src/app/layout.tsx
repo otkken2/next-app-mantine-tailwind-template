@@ -7,6 +7,7 @@ import {
 import theme from "./theme";
 import "./globals.css";
 import { Header } from "@/components/Header";
+import { CartProvider } from "@/contexts/CartContext";
 export const metadata: Metadata = {
   title: "Next App Mantine Tailwind Template",
   description: "Next App Mantine Tailwind Template",
@@ -22,9 +23,13 @@ export default function RootLayout({
       <head>
         <ColorSchemeScript />
       </head>
-      <body className="antialiased flex flex-col h-screen bg-gray-200">
-        <Header />
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+      <body className="antialiased flex flex-col min-h-screen bg-gray-200">
+        <MantineProvider theme={theme}>
+          <CartProvider>
+            <Header />
+            {children}
+          </CartProvider>
+        </MantineProvider>
       </body>
     </html>
   );
