@@ -1,5 +1,6 @@
 import axios from "axios";
 import { PageContent } from "./PageContent";
+import { PageTitle } from "@/components/PageTitle";
 
 interface Params {
   name: string;
@@ -111,8 +112,8 @@ export default async function CountryPage({ params }: { params: Params }) {
   const perDayPlans = plans.PER_DAY;
   const fixedDayPlans = plans.FIXED_DAY;
   return (
-    <main className="flex flex-col gap-6 h-full items-center p-4">
-      <h2 className="text-2xl font-bold text-center">{name} eSIM</h2>
+    <main className="flex flex-col h-full items-center gap-6">
+      <PageTitle>{name} eSIM</PageTitle>
       <PageContent fixedDayPlans={fixedDayPlans} perDayPlans={perDayPlans} />
     </main>
   );

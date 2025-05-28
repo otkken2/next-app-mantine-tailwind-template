@@ -27,7 +27,7 @@ export default function RootLayout({
         <MantineProvider theme={theme}>
           <CartProvider>
             <Header />
-            {children}
+            <div className="p-4">{children}</div>
           </CartProvider>
         </MantineProvider>
       </body>

@@ -1,13 +1,12 @@
+import { PageTitle } from "@/components/PageTitle";
 import Image from "next/image";
 import Link from "next/link";
 const countries = ["Japan", "Korea", "China", "Taiwan", "America"];
 
 export default function Home() {
   return (
-    <main className="h-full px-4">
-      <h2 className="text-2xl font-bold text-center mb-6">
-        Select Country for your eSIM
-      </h2>
+    <main className="h-full flex flex-col gap-6">
+      <PageTitle>Select Country for your eSIM</PageTitle>
       <div className="flex flex-col gap-4 justify-center items-center">
         {countries.map((country) => (
           <Link
