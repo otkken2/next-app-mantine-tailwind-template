@@ -5,6 +5,8 @@ import { createContext, useContext, useState } from "react";
 type CartContextType = {
   cart: Plan[];
   addToCart: (item: Plan) => void;
+  removeFromCart: (item: Plan) => void;
+  resetCart: () => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -28,8 +30,21 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
+  const removeFromCart = (item: Plan) => {
+    const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
+  const resetCart = () => {
+    setCart([]);
+    localStorage.removeItem("cart");
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, resetCart }}
+    >
       {children}
     </CartContext.Provider>
   );

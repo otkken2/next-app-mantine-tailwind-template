@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { PackageType, PACKAGE_TYPE, Plan } from "./page";
-import { Button, Card } from "@mantine/core";
-import { useCart } from "@/contexts/CartContext";
+import { Button } from "@mantine/core";
+import { PlanCard } from "@/components/PlanCard";
 
 interface Props {
   fixedDayPlans: Plan[];
@@ -42,34 +42,9 @@ export const PageContent = ({ fixedDayPlans, perDayPlans }: Props) => {
           })}
         {isPerDay &&
           perDayPlans.map((plan) => {
-            return <PlanCard key={plan.id} plan={plan} />;
+            return <PlanCard key={plan.id} plan={plan} isPerDay />;
           })}
       </div>
     </div>
-  );
-};
-
-const PlanCard = ({
-  plan,
-  isFixedDay = false,
-}: {
-  plan: Plan;
-  isFixedDay?: boolean;
-}) => {
-  const { addToCart } = useCart();
-  return (
-    <Card className="flex flex-col gap-4 sm:flex-row justify-between sm:items-center">
-      <div>
-        <p>
-          Plan Name{isFixedDay && " (Duration)"}: {plan.name}
-        </p>
-        <p>Price: ${plan.price}</p>
-        <p>
-          Data Volume: {plan.dataVolume} {plan.dataUnit}
-        </p>
-      </div>
-      {/* <Button onClick={() => console.log("addToCart", plan)}> */}
-      <Button onClick={() => addToCart(plan)}>Add to Cart</Button>
-    </Card>
   );
 };
