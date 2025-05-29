@@ -38,11 +38,11 @@ interface CountryApiResponse {
   };
 }
 
-export default async function CountryPage({
-  params,
-}: {
+interface Params {
   params: Promise<{ name: string }>;
-}) {
+}
+
+export default async function CountryPage({ params }: Params) {
   const { name } = await params;
 
   let response: AxiosResponse<CountryApiResponse>;
