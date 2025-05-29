@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { PACKAGE_TYPE, type PackageType, type Plan } from "@/types";
 import { Button } from "@mantine/core";
-import { PlanCard } from "@/components/PlanCard";
 import { useRouter } from "next/navigation";
 import { useProtectRoute } from "@/hooks/useProtectRoute";
 import { PageTitle } from "@/components/PageTitle";
+import { ContentsFixedDay } from "@/components/ContentsFixedDay";
+import { ContentsPerDay } from "@/components/ContentsPerDay";
+import { PlanCardForAdd } from "./PlanCardForAdd";
 
 interface Props {
   fixedDayPlans: Plan[];
@@ -49,11 +51,19 @@ export const PageContent = ({ fixedDayPlans, perDayPlans, name }: Props) => {
         <div className="flex flex-col gap-4">
           {isFixedDay &&
             fixedDayPlans.map((plan) => {
-              return <PlanCard key={plan.id} plan={plan} isFixedDay />;
+              return (
+                <PlanCardForAdd key={plan.id} plan={plan}>
+                  <ContentsFixedDay plan={plan} />
+                </PlanCardForAdd>
+              );
             })}
           {isPerDay &&
             perDayPlans.map((plan) => {
-              return <PlanCard key={plan.id} plan={plan} isPerDay />;
+              return (
+                <PlanCardForAdd key={plan.id} plan={plan}>
+                  <ContentsPerDay plan={plan} />
+                </PlanCardForAdd>
+              );
             })}
         </div>
       </div>

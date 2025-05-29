@@ -53,7 +53,9 @@ export default async function CountryPage({ params }: Params) {
     );
   } catch (error) {
     if (error instanceof AxiosError) {
-      throw new Error(`Failed to fetch plans, AxiosError: ${error.status}`);
+      throw new Error(
+        `AxiosError ${error.status ?? ""} message:${error.message}`,
+      );
     }
 
     throw new Error("Failed to fetch plans");

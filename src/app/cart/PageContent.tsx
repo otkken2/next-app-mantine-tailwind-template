@@ -1,6 +1,6 @@
 "use client";
 
-import { OrderSummary } from "@/components/OrderSummary";
+import { CartSummary } from "@/app/cart/CartSummary";
 import { PageTitle } from "@/components/PageTitle";
 import { Button } from "@mantine/core";
 import Link from "next/link";
@@ -17,10 +17,7 @@ export const PageContent = () => {
   return (
     <div className="flex flex-col gap-6">
       <PageTitle>Cart</PageTitle>
-      <OrderSummary
-        shouldShowRemoveFromCart={true}
-        shouldShowAddToCart={false}
-      />
+      <CartSummary />
       {cart.length > 0 && (
         <Link href="/checkout">
           <Button fullWidth size="md">

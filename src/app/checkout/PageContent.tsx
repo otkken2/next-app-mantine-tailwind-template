@@ -1,11 +1,11 @@
 "use client";
-import { OrderSummary } from "@/components/OrderSummary";
 import { PageTitle } from "@/components/PageTitle";
 import { Button } from "@mantine/core";
 import React from "react";
 import { useCart } from "@/contexts/CartContext";
 import { useRouter } from "next/navigation";
 import { useProtectRoute } from "@/hooks/useProtectRoute";
+import { CheckoutSummary } from "@/app/checkout/CheckoutSummary";
 
 export const PageContent = () => {
   const { resetCart } = useCart();
@@ -19,10 +19,7 @@ export const PageContent = () => {
   return (
     <div className="flex flex-col gap-6">
       <PageTitle>Checkout</PageTitle>
-      <OrderSummary
-        shouldShowRemoveFromCart={false}
-        shouldShowAddToCart={false}
-      />
+      <CheckoutSummary />
       <Button fullWidth size="md" onClick={handleClick}>
         Simulate Payment
       </Button>
