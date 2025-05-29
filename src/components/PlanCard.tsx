@@ -1,4 +1,4 @@
-import { Plan } from "@/app/country/[name]/page";
+import { Plan } from "@/types";
 import { useCart } from "@/contexts/CartContext";
 import { Card, Button } from "@mantine/core";
 

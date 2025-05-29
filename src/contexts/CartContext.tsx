@@ -1,5 +1,5 @@
 "use client";
-import { Plan } from "@/app/country/[name]/page";
+import { Plan } from "@/types";
 import { createContext, useContext, useEffect, useState } from "react";
 
 type CartContextType = {

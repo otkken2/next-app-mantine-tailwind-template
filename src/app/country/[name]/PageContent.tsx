@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { PackageType, PACKAGE_TYPE, Plan } from "./page";
+import { PACKAGE_TYPE, type PackageType, type Plan } from "@/types";
 import { Button } from "@mantine/core";
 import { PlanCard } from "@/components/PlanCard";
 import { useRouter } from "next/navigation";
 import { useProtectRoute } from "@/hooks/useProtectRoute";
+
 interface Props {
   fixedDayPlans: Plan[];
   perDayPlans: Plan[];
