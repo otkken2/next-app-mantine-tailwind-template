@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="h-full flex flex-col gap-6">
-      <PageTitle>Select Country for your eSIM</PageTitle>
+      <PageTitle>Which country's eSIM would you choose?</PageTitle>
       <AuthRequireMessage />
       <div className="flex flex-col gap-4 justify-center items-center">
         {countries.map((country) => (
