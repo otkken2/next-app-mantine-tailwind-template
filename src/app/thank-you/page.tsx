@@ -1,22 +1,12 @@
-"use client";
-import { PageTitle } from "@/components/PageTitle";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useProtectRoute } from "@/hooks/useProtectRoute";
+import { Metadata } from "next";
+import { PageContent } from "./PageContent";
+import { SITE_NAME, SITE_DESCRIPTION } from "@/constants";
+
+export const metadata: Metadata = {
+  title: `Thank You | ${SITE_NAME}`,
+  description: SITE_DESCRIPTION,
+};
 
 export default function ThankYouPage() {
-  const router = useRouter();
-  useProtectRoute(router);
-
-  return (
-    <div className="flex flex-col gap-6">
-      <PageTitle>Thank You</PageTitle>
-      <p className="text-center text-lg">
-        Thank you! Your eSIM purchase has been simulated successfully.
-      </p>
-      <p className="text-center text-lg text-blue-500">
-        <Link href="/">Back to Home</Link>
-      </p>
-    </div>
-  );
+  return <PageContent />;
 }

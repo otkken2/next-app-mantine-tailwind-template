@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   ColorSchemeScript,
   mantineHtmlProps,
@@ -9,11 +8,6 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { CartProvider } from "@/contexts/CartContext";
 import { UserProvider } from "@/contexts/UserContext";
-
-export const metadata: Metadata = {
-  title: "Next App Mantine Tailwind Template",
-  description: "Next App Mantine Tailwind Template",
-};
 
 export default function RootLayout({
   children,

@@ -1,31 +1,12 @@
-"use client";
-import { useCart } from "@/contexts/CartContext";
-import { PageTitle } from "@/components/PageTitle";
-import { Button } from "@mantine/core";
-import Link from "next/link";
-import { OrderSummary } from "@/components/OrderSummary";
-import { useProtectRoute } from "@/hooks/useProtectRoute";
-import { useRouter } from "next/navigation";
+import { SITE_NAME, SITE_DESCRIPTION } from "@/constants";
+import { type Metadata } from "next";
+import { PageContent } from "./PageContent";
+
+export const metadata: Metadata = {
+  title: `Cart | ${SITE_NAME}`,
+  description: SITE_DESCRIPTION,
+};
 
 export default function CartPage() {
-  const { cart } = useCart();
-  const router = useRouter();
-  useProtectRoute(router);
-
-  return (
-    <div className="flex flex-col gap-6">
-      <PageTitle>Cart</PageTitle>
-      <OrderSummary
-        shouldShowRemoveFromCart={true}
-        shouldShowAddToCart={false}
-      />
-      {cart.length > 0 && (
-        <Link href="/checkout">
-          <Button fullWidth size="md">
-            Proceed to Checkout
-          </Button>
-        </Link>
-      )}
-    </div>
-  );
+  return <PageContent />;
 }
