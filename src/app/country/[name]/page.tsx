@@ -1,6 +1,5 @@
 import axios from "axios";
 import { PageContent } from "./PageContent";
-import { PageTitle } from "@/components/PageTitle";
 import { SITE_NAME, SITE_DESCRIPTION } from "@/constants";
 import { type Metadata } from "next";
 import { PackageType, Plan } from "@/types";
@@ -54,9 +53,10 @@ export default async function CountryPage({
   const perDayPlans = plans.PER_DAY;
   const fixedDayPlans = plans.FIXED_DAY;
   return (
-    <main className="flex flex-col h-full items-center gap-6">
-      <PageTitle>{name} eSIM</PageTitle>
-      <PageContent fixedDayPlans={fixedDayPlans} perDayPlans={perDayPlans} />
-    </main>
+    <PageContent
+      fixedDayPlans={fixedDayPlans}
+      perDayPlans={perDayPlans}
+      name={name}
+    />
   );
 }
