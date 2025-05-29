@@ -44,7 +44,9 @@ export default async function CountryPage({
   params: Promise<{ name: string }>;
 }) {
   const { name } = await params;
+
   let response: AxiosResponse<CountryApiResponse>;
+
   try {
     response = await axios.get<CountryApiResponse>(
       `https://esim.gmobile.biz/api/v1/plans?country=${name}`,
@@ -53,6 +55,7 @@ export default async function CountryPage({
     if (error instanceof AxiosError) {
       throw new Error(`Failed to fetch plans, AxiosError: ${error.status}`);
     }
+
     throw new Error("Failed to fetch plans");
   }
 
@@ -63,8 +66,10 @@ export default async function CountryPage({
   ) {
     notFound();
   }
+
   const perDayPlans = response.data.data.plans.PER_DAY;
   const fixedDayPlans = response.data.data.plans.FIXED_DAY;
+
   return (
     <PageContent
       fixedDayPlans={fixedDayPlans}

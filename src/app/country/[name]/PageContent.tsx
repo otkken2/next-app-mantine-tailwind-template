@@ -13,6 +13,7 @@ interface Props {
   perDayPlans: Plan[];
   name: string;
 }
+
 export const PageContent = ({ fixedDayPlans, perDayPlans, name }: Props) => {
   const router = useRouter();
   useProtectRoute(router);

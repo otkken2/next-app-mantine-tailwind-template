@@ -8,6 +8,7 @@ import React from "react";
 import { useCart } from "@/contexts/CartContext";
 import { useRouter } from "next/navigation";
 import { useProtectRoute } from "@/hooks/useProtectRoute";
+
 export const PageContent = () => {
   const { cart } = useCart();
   const router = useRouter();

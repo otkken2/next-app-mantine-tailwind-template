@@ -1,6 +1,15 @@
+"use client";
 import { Plan } from "@/types";
 import { useCart } from "@/contexts/CartContext";
 import { Card, Button } from "@mantine/core";
+
+interface Props {
+  plan: Plan;
+  isFixedDay?: boolean;
+  isPerDay?: boolean;
+  shouldShowAddToCart?: boolean;
+  shouldShowRemoveFromCart?: boolean;
+}
 
 export const PlanCard = ({
   plan,
@@ -8,13 +17,7 @@ export const PlanCard = ({
   isPerDay = false,
   shouldShowAddToCart = true,
   shouldShowRemoveFromCart = false,
-}: {
-  plan: Plan;
-  isFixedDay?: boolean;
-  isPerDay?: boolean;
-  shouldShowAddToCart?: boolean;
-  shouldShowRemoveFromCart?: boolean;
-}) => {
+}: Props) => {
   const { addToCart, removeFromCart } = useCart();
   return (
     <Card className="flex flex-col gap-4 sm:flex-row justify-between sm:items-center">
