@@ -1,7 +1,13 @@
+"use client";
 import { PageTitle } from "@/components/PageTitle";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useProtectRoute } from "@/hooks/useProtectRoute";
 
 export default function ThankYouPage() {
+  const router = useRouter();
+  useProtectRoute(router);
+
   return (
     <div className="flex flex-col gap-6">
       <PageTitle>Thank You</PageTitle>

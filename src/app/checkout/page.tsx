@@ -4,10 +4,12 @@ import { PageTitle } from "@/components/PageTitle";
 import { Button } from "@mantine/core";
 import { useCart } from "@/contexts/CartContext";
 import { useRouter } from "next/navigation";
+import { useProtectRoute } from "@/hooks/useProtectRoute";
 
 export default function CheckoutPage() {
   const { resetCart } = useCart();
   const router = useRouter();
+  useProtectRoute(router);
 
   const handleClick = () => {
     resetCart();

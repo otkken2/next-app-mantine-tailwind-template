@@ -35,14 +35,16 @@ export const Header = () => {
             </Button>
           </div>
         )}
-        <Link href="/cart" className="relative">
-          <IconShoppingCartFilled size={24} />
-          {cart.length > 0 && (
-            <div className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-xs w-4 h-4 p-1 rounded-full flex items-center justify-center">
-              {cart.length}
-            </div>
-          )}
-        </Link>
+        {user !== null && (
+          <Link href="/cart" className="relative">
+            <IconShoppingCartFilled size={24} />
+            {cart.length > 0 && (
+              <div className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-xs w-4 h-4 p-1 rounded-full flex items-center justify-center">
+                {cart.length}
+              </div>
+            )}
+          </Link>
+        )}
       </div>
     </header>
   );

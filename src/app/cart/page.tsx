@@ -4,8 +4,14 @@ import { PageTitle } from "@/components/PageTitle";
 import { Button } from "@mantine/core";
 import Link from "next/link";
 import { OrderSummary } from "@/components/OrderSummary";
+import { useProtectRoute } from "@/hooks/useProtectRoute";
+import { useRouter } from "next/navigation";
+
 export default function CartPage() {
   const { cart } = useCart();
+  const router = useRouter();
+  useProtectRoute(router);
+
   return (
     <div className="flex flex-col gap-6">
       <PageTitle>Cart</PageTitle>

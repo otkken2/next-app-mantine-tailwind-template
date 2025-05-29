@@ -4,17 +4,22 @@ import { useState } from "react";
 import { PackageType, PACKAGE_TYPE, Plan } from "./page";
 import { Button } from "@mantine/core";
 import { PlanCard } from "@/components/PlanCard";
-
+import { useRouter } from "next/navigation";
+import { useProtectRoute } from "@/hooks/useProtectRoute";
 interface Props {
   fixedDayPlans: Plan[];
   perDayPlans: Plan[];
 }
 export const PageContent = ({ fixedDayPlans, perDayPlans }: Props) => {
+  const router = useRouter();
+  useProtectRoute(router);
+
   const [displayedPlanType, setDisplayedPlanType] = useState<PackageType>(
     PACKAGE_TYPE.FIXED_DAY,
   );
   const isFixedDay = displayedPlanType === PACKAGE_TYPE.FIXED_DAY;
   const isPerDay = displayedPlanType === PACKAGE_TYPE.PER_DAY;
+
   return (
     <div className="w-full flex flex-col gap-8 h-full">
       <div className="flex w-full">
