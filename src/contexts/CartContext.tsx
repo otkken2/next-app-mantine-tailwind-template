@@ -1,6 +1,6 @@
 "use client";
 import { Plan } from "@/app/country/[name]/page";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 type CartContextType = {
   cart: Plan[];
@@ -16,10 +16,14 @@ const isAlreadyInCart = (cart: Plan[], item: Plan) => {
 };
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  const [cart, setCart] = useState<Plan[]>(() => {
+  const [cart, setCart] = useState<Plan[]>([]);
+
+  useEffect(() => {
     const storedCart = localStorage.getItem("cart");
-    return storedCart ? JSON.parse(storedCart) : [];
-  });
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+  }, []);
 
   const addToCart = (item: Plan) => {
     if (isAlreadyInCart(cart, item)) return;

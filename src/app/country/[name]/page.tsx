@@ -2,9 +2,6 @@ import axios from "axios";
 import { PageContent } from "./PageContent";
 import { PageTitle } from "@/components/PageTitle";
 
-interface Params {
-  name: string;
-}
 export const PACKAGE_TYPE = {
   PER_DAY: "PER_DAY",
   FIXED_DAY: "FIXED_DAY",
@@ -100,8 +97,12 @@ interface CountryApiResponse {
   };
 }
 
-export default async function CountryPage({ params }: { params: Params }) {
-  const { name } = params;
+export default async function CountryPage({
+  params,
+}: {
+  params: Promise<{ name: string }>;
+}) {
+  const { name } = await params;
   const {
     data: {
       data: { plans },
