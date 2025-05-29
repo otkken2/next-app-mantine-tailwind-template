@@ -1,9 +1,9 @@
 "use client";
 
 import { PageTitle } from "@/components/PageTitle";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useProtectRoute } from "@/hooks/useProtectRoute";
+import { BackToHome } from "@/components/BackToHome";
 
 export const PageContent = () => {
   const router = useRouter();
@@ -15,9 +15,7 @@ export const PageContent = () => {
       <p className="text-center text-lg">
         Thank you! Your eSIM purchase has been simulated successfully.
       </p>
-      <p className="text-center text-lg text-blue-500">
-        <Link href="/">Back to Home</Link>
-      </p>
+      <BackToHome />
     </div>
   );
 };
