@@ -1,12 +1,13 @@
+import Link from "next/link";
 import React from "react";
 
 export const BackToHome = () => {
   return (
-    <a
+    <Link
       href="/"
       className="text-center text-xl text-blue-500 hover:underline underline-offset-3"
     >
       Back to Home
-    </a>
+    </Link>
   );
 };

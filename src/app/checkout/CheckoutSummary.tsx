@@ -1,7 +1,6 @@
 "use client";
 
 import { useCart } from "@/contexts/CartContext";
-import { PlanCardForCartPage } from "../cart/PlanCardForCartPage";
 import { ContentsFixedDay } from "../../components/ContentsFixedDay";
 import { ContentsPerDay } from "../../components/ContentsPerDay";
 import { PACKAGE_TYPE } from "@/types";

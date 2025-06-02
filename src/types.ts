@@ -64,31 +64,3 @@ export interface Plan {
     AUD: number;
   };
 }
-
-interface CountryApiResponse {
-  statusCode: number;
-  data: {
-    network: {
-      id: number;
-      name: string;
-      enabled: boolean;
-      code: string;
-      apn: string;
-      qos: string;
-      type: string;
-      networkGeneration: string;
-      countryId: number;
-      createdAt: string;
-      updatedAt: string;
-    }[];
-    country: {
-      name: string;
-      enabled: boolean;
-      subCountries: string[] | null;
-      code: string;
-    };
-    plans: {
-      [key in PackageType]: Plan[];
-    };
-  };
-}
